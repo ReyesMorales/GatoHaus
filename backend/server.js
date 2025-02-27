@@ -10,15 +10,29 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Ruta básica
+// Simulamos una base de datos en memoria
+let rooms = [
+    { name: 'Habitación 1', available: true },
+    { name: 'Habitación 2', available: false },
+    { name: 'Habitación 3', available: true },
+];
+
+// Endpoint para obtener habitaciones
 app.get('/api/rooms', (req, res) => {
-    // Simulamos algunas habitaciones disponibles
-    const rooms = [
-        { id: 1, name: 'Suite para Gatos', available: true },
-        { id: 2, name: 'Habitación estándar', available: false },
-        { id: 3, name: 'Habitación Deluxe', available: true }
-    ];
     res.json(rooms);
+});
+
+// Endpoint para reservar una habitación
+app.put('/api/rooms/:name/reserve', (req, res) => {
+    const roomName = req.params.name;
+    const room = rooms.find(r => r.name === roomName);
+    
+    if (room && room.available) {
+        room.available = false;  // Marcar como reservada
+        res.json(room);
+    } else {
+        res.status(400).json({ message: 'Room is already reserved or does not exist' });
+    }
 });
 
 // Iniciar servidor
