@@ -1,2 +1,12 @@
-# GatoHaus
-GatoHaus es un software de gestión hotelera diseñado para optimizar la administración de reservas, habitaciones y pagos en hoteles.
+# GatoHaus 🐱🏨
+Un hotel exclusivo para gatos, donde podrás hacer reservas de habitaciones, vuelos, ¡y mucho más!
+
+## Características:
+- Ver habitaciones disponibles.
+- Hacer reservas para tu gato.
+- ¡Próximamente más servicios!
+
+## Tecnologías:
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js, Express
+
