@@ -1,0 +1,27 @@
+{
+  "name": "gatohaus",
+  "version": "1.0.0",
+  "description": "Un hotel exclusivo para gatos, donde podrás hacer reservas de habitaciones, vuelos, ¡y mucho más!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReyesMorales/GatoHaus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ReyesMorales/GatoHaus/issues"
+  },
+  "homepage": "https://github.com/ReyesMorales/GatoHaus#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
