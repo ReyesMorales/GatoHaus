@@ -1,71 +1,90 @@
-/* Estilos generales del cuerpo */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6; 
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Contenedor principal */
-.container {
-    width: 80%;
-    margin: 0 auto; 
+:root {
+--lion: #a6894eff;
+--dun: #d9cbafff;
+--field-drab: #695831ff;
+--alabaster: #f1eee4ff;
+--caf-noir: #433423ff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--dun);
+}
+
+/* Barra de navegación */
+header {
+    background-color: var(--dun);
+    color: #695831;
+    padding: 10px 20px;
+    /*display: flex;*/
+    /*justify-content: space-between;
+    align-items: center;*/
+}
+
+/* El contenedor de la barra de navegación */
+nav {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 200px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    padding-right: 100px;
+}
+
+nav ul li {
+    margin: 0 30px;
+}
+
+nav ul li a {
+    color: var(--lion);
+    text-decoration: none;
+    font-size: 28px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--caf-noir); 
+}
+
+/* Sección principal */
+main {
     padding: 20px;
 }
 
-/* Título principal */
-.main-title {
+section {
+    margin: 40px 0;
+}
+
+h1, h2 {
+    color: var(--lion);
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: var(--dun);
+    color: var(--lion);
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #4A90E2;
+    padding: 10px 0;
 }
-
-/* Subtítulo */
-.sub-title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Contenedor de habitaciones */
-.rooms-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.room {
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: white;
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-p {
-    font-size: 1rem;
-    color: green;
-}
-
-.room.reserved {
-    background-color: #f0f0f0; 
-    opacity: 0.6;  
-}
-
-.room p {
-    font-weight: bold;
-}
-
-.room button:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;  
-}
-
