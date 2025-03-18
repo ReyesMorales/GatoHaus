@@ -17,29 +17,81 @@ body {
     background-color: var(--dun);
 }
 
-/* Barra de navegación */
-header {
-    background-color: var(--dun);
-    color: #695831;
-    padding: 10px 20px;
-    /*display: flex;*/
-    /*justify-content: space-between;
-    align-items: center;*/
-}
-
-/* El contenedor de la barra de navegación */
-nav {
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
 
 /* Logo */
 .logo-container {
     display: flex;
     align-items: center;
+}/* Barra de navegación */
+header {
+    background-color: var(--dun);
+    color: #695831;
+    padding: 10px 20px;
 }
+
+/* El contenedor de la barra de navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Ocultar los enlaces en pantallas pequeñas por defecto */
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+/* Ocultar el icono del toggle en pantallas grandes */
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Ocultar el icono ☰ en pantallas más grandes */
+    }
+}
+
+
+/* Ajuste para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; /* Ajusta según sea necesario */
+        left: 0;
+        width: 100%;
+        background-color: var(--dun);
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar el botón en pantallas pequeñas */
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: #695831;
+        cursor: pointer;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+}
+
+/* Mostrar el menú cuando se hace clic en el botón */
+.menu-toggle.active + .nav-links {
+    display: block;
+}
+
 
 .logo {
     height: 200px;
