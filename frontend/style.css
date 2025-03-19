@@ -5,8 +5,8 @@
 }
 
 :root {
---lion: #a6894eff;
---dun: #d9cbafff;
+--lion: #a6894e;
+--dun: #d9cbaf;
 --field-drab: #695831ff;
 --alabaster: #f1eee4ff;
 --caf-noir: #433423ff;
@@ -129,7 +129,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: var(--lion);
     position: relative;
 }
 
@@ -157,6 +157,7 @@ nav ul li a:hover {
 .hero p {
     font-size: 2rem;
     margin-bottom: 20px;
+    color:var(--alabaster)
 }
 
 /* Ajustes para pantallas más pequeñas */
@@ -197,8 +198,60 @@ section {
     margin: 40px 0;
 }
 
-h1, h2 {
+/* Estilo del título */
+h2 {
     color: var(--lion);
+    font-size: 2.5rem; 
+    font-weight: bold;
+}
+
+/* Descripción debajo del título */
+section p {
+    font-size: 1.2rem;
+    color: var(--caf-noir); 
+    margin-top: 10px;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem; 
+    }
+
+    section p {
+        font-size: 1rem; 
+    }
+}
+
+/* Contenedor de las cards */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre las cards */
+    margin-top: 30px;
+    flex-wrap: wrap; /* Permite que las cards se acomoden en filas en pantallas pequeñas */
+}
+
+/* Estilos para las cards */
+.card {
+    width: 30%; /* Cada card ocupará un 30% del ancho del contenedor */
+    height: 300px; /* Altura fija para la card */
+    background-color: var(--lion); /* Color de fondo */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .cards-container {
+        justify-content: center; /* Centrar las cards */
+        gap: 10px;
+    }
+
+    .card {
+        width: 90%; /* Las cards ocuparán casi todo el ancho en pantallas pequeñas */
+        height: 250px; /* Ajustar la altura */
+    }
 }
 
 /* Estilo del pie de página */
