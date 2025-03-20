@@ -227,30 +227,44 @@ section p {
 .cards-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Espacio entre las cards */
+    gap: 20px; 
     margin-top: 30px;
-    flex-wrap: wrap; /* Permite que las cards se acomoden en filas en pantallas pequeñas */
+    flex-wrap: wrap; 
 }
 
 /* Estilos para las cards */
 .card {
-    width: 30%; /* Cada card ocupará un 30% del ancho del contenedor */
-    height: 300px; /* Altura fija para la card */
-    background-color: var(--lion); /* Color de fondo */
+    width: 30%; 
+    height: 350px; 
+    background-color: var(--lion); 
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
+}
+
+/* Estilo del título en la tarjeta */
+.card h3 {
+    color: var(--alabaster);
+    font-size: 1.8rem; /* Ajustar tamaño del texto */
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
 }
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
     .cards-container {
-        justify-content: center; /* Centrar las cards */
+        justify-content: center;
         gap: 10px;
     }
 
     .card {
-        width: 90%; /* Las cards ocuparán casi todo el ancho en pantallas pequeñas */
-        height: 250px; /* Ajustar la altura */
+        width: 90%;
+        height: 250px;
+    }
+
+    .card h3 {
+        font-size: 1.5rem; 
     }
 }
 
