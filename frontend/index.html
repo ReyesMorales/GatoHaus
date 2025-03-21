@@ -41,17 +41,30 @@
                     <div class="card">
                         <h3>Habitación Deluxe</h3>
                             <img src="/assets/Imagen_habitacion1.jpg" alt="Habitación Deluxe">
+                            <button class="ver-mas" data-habitacion="deluxe">Ver más</button>
                     </div>
                     <div class="card">
                         <h3>Habitación Suite</h3>
                             <img src="/assets/Imagen_habitacion2.jpg" alt="Habitación Suite">
+                            <button class="ver-mas" data-habitacion="suite">Ver más</button>
                     </div>
                     <div class="card">
                         <h3>Habitación Cat</h3>
                             <img src="/assets/Imagen_habitacion3.jpg" alt="Habitación Cat">
+                            <button class="ver-mas" data-habitacion="cat">Ver más</button>
                     </div>
                 </div>
         </section>
+
+         <!-- Modal para mostrar más detalles -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Título de la habitación</h2>
+            <p id="modal-description">Aquí iría la descripción de la habitación seleccionada.</p>
+        </div>
+    </div>
+</section>
 
         <section id="servicios">
             <h2>Servicios</h2>
