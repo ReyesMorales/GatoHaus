@@ -1,0 +1,47 @@
+/* Estilos para el calendario de reservas */
+#calendario-container {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--alabaster);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#fecha-reserva {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--lion);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#confirmar-reserva {
+    padding: 10px 15px;
+    background-color: var(--lion);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#confirmar-reserva:hover {
+    background-color: var(--field-drab);
+}
+
+/* Estilos para hacer el calendario responsive */
+@media (max-width: 768px) {
+    #calendario-container {
+        padding: 10px;
+    }
+    
+    #fecha-reserva {
+        font-size: 14px;
+    }
+    
+    #confirmar-reserva {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}

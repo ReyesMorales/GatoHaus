@@ -1,0 +1,168 @@
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    overflow-y: auto; 
+}
+
+.modal-content {
+    background: #fff;
+    margin: 15% auto; 
+    padding: 20px;
+    width: 80%; 
+    max-width: 600px; 
+    z-index: 1001; 
+}
+
+#modal-title {
+    margin-bottom: 15px; 
+    font-size: 24px; 
+}
+
+#modal-description {
+    margin-bottom: 20px;
+    font-size: 18px; 
+}
+
+#modal-services {
+    margin-top: 20px; 
+}
+
+#modal-services h3 {
+    margin-bottom: 10px; 
+    font-size: 20px; 
+}
+
+#modal-services ul {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    padding: 0;
+    list-style: none; 
+}
+
+/* Media query para pantallas pequeñas (hasta 600px de ancho) */
+@media (max-width: 768px) {
+    /* Reducir el tamaño de la fuente en el modal */
+    .modal-content {
+        font-size: 16px; 
+        width: 90%; 
+        padding: 15px;
+    }
+
+    #modal-title {
+        font-size: 22px; 
+    }
+
+    #modal-description {
+        font-size: 14px; 
+    }
+}
+
+/* Media query para pantallas muy pequeñas (hasta 400px de ancho) */
+@media (max-width: 400px) {
+    .modal-content {
+        font-size: 14px;
+    }
+
+    #modal-title {
+        font-size: 20px;
+    }
+
+    #modal-description {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 95%; 
+    }
+}
+
+/* Estilo para los servicios */
+#modal-services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#modal-services li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#modal-services img {
+    width: 20px; 
+    height: 20px;
+    margin-right: 10px; 
+}
+
+.icons {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 80px; 
+    height: auto;
+}
+
+.icons img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px; 
+}
+
+
+#reservar-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--caf-noir);
+    color: var(--alabaster);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+#reservar-button:hover {
+    background-color: var(--caf-noir);
+}
+
+
+/* Botón de cierre */
+.modal-content {
+    position: relative;
+    background: var(--alabaster);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: var(--lion);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close:hover {
+    background-color: var(--field-drab);
+    transform: scale(1.1);
+}

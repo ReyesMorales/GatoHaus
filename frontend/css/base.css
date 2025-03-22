@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+--lion: #a6894e;
+--dun: #d9cbaf;
+--field-drab: #695831ff;
+--alabaster: #f1eee4ff;
+--caf-noir: #433423ff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--dun);
+}
