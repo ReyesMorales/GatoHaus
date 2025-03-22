@@ -1,6 +1,7 @@
 // backend/server.js
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -9,6 +10,7 @@ const port = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/assets', express.static(path.join(__dirname, 'assets'))); 
 
 // Simulamos una base de datos en memoria
 let rooms = [
