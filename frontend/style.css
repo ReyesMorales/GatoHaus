@@ -311,7 +311,7 @@ section p {
 }
 
 .ver-mas {
-    font-size: 16px; /* Tamaño base */
+    font-size: 16px; 
     padding: 10px 15px;
     position: absolute;
     bottom: 10px;
@@ -326,7 +326,7 @@ section p {
 /* Tablets */
 @media (max-width: 768px) {
     .ver-mas {
-        font-size: 14px; /* Reducimos el tamaño */
+        font-size: 14px; 
         padding: 8px 12px;
     }
 }
@@ -334,33 +334,87 @@ section p {
 /* Móviles */
 @media (max-width: 480px) {
     .ver-mas {
-        font-size: 12px; /* Más pequeño en móviles */
+        font-size: 12px; 
         padding: 6px 10px;
     }
 }
 
 /* Modal */
 .modal {
-    display: none; /* Inicialmente oculto */
+    display: none; 
     position: fixed;
-    z-index: 1; /* Asegurarse de que se muestre encima del contenido */
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-    padding-top: 60px;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
 }
 
-/* Contenido del modal */
 .modal-content {
-    background-color: var(--alabaster);
-    margin: 5% auto;
+    background: #fff;
+    margin: 15% auto; 
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Puedes ajustar el tamaño */
-    font-size: 18px;
+    width: 80%; 
+    max-width: 600px; 
+    z-index: 1001; 
 }
+
+#modal-title {
+    margin-bottom: 15px; 
+    font-size: 24px; 
+}
+
+#modal-description {
+    margin-bottom: 20px;
+    font-size: 18px; 
+}
+
+#modal-services {
+    margin-top: 20px; 
+}
+
+#modal-services h3 {
+    margin-bottom: 10px; 
+    font-size: 20px; 
+}
+
+#modal-services ul {
+    display: flex;
+    flex-wrap: wrap; /* Los iconos se ajustarán en nuevas líneas */
+    gap: 20px; /* Espacio entre los iconos */
+    padding: 0;
+    list-style: none; /* Quita los puntos de la lista */
+}
+
+.icons {
+    display: flex;
+    align-items: center; /* Centra los iconos verticalmente */
+    justify-content: center; /* Centra los iconos horizontalmente */
+    width: 80px; /* Ajusta el tamaño del icono (puedes cambiarlo) */
+    height: auto;
+}
+
+.icons img {
+    width: 30px; /* Ajusta el tamaño de los iconos */
+    height: auto;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+
+#reservar-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--caf-noir);
+    color: var(--alabaster);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+#reservar-button:hover {
+    background-color: var(--caf-noir);
+}
+
 
 /* Botón de cierre */
 .close {
@@ -383,28 +437,25 @@ section p {
 @media (max-width: 600px) {
     /* Reducir el tamaño de la fuente en el modal */
     .modal-content {
-        font-size: 16px; /* Puedes ajustar este tamaño si lo necesitas */
+        font-size: 16px; 
     }
 
-    /* Ajustar el tamaño de los títulos */
     #modal-title {
-        font-size: 22px; /* Título más pequeño */
+        font-size: 22px; 
     }
 
     #modal-description {
-        font-size: 14px; /* Descripción más pequeña */
+        font-size: 14px; 
     }
 
-    /* Ajustar la posición y el tamaño del modal */
     .modal-content {
-        width: 90%; /* Reducir el ancho en pantallas pequeñas */
+        width: 90%; 
         padding: 15px;
     }
 }
 
 /* Media query para pantallas muy pequeñas (hasta 400px de ancho) */
 @media (max-width: 400px) {
-    /* Reducir aún más el tamaño de la fuente */
     .modal-content {
         font-size: 14px;
     }
@@ -417,11 +468,29 @@ section p {
         font-size: 12px;
     }
 
-    /* Hacer que el modal ocupe más espacio */
     .modal-content {
-        width: 95%; /* Hacer que el modal ocupe casi todo el ancho */
+        width: 95%; 
     }
 }
+
+/* Estilo para los servicios */
+#modal-services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#modal-services li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#modal-services img {
+    width: 20px; /* Tamaño del icono */
+    height: 20px;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
 
 /* Estilo del pie de página */
 footer {

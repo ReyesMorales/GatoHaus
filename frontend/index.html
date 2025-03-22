@@ -6,6 +6,7 @@
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <title>GatoHaus</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
    <!-- Barra de Navegación -->
@@ -57,14 +58,33 @@
         </section>
 
          <!-- Modal para mostrar más detalles -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modal-title">Título de la habitación</h2>
-            <p id="modal-description">Aquí iría la descripción de la habitación seleccionada.</p>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-title">Título de la habitación</h2>
+                <p id="modal-description">Aquí iría la descripción de la habitación seleccionada.</p>
+           <!-- Servicios de la habitación con iconos -->
+            <div id="modal-services">
+                <h3>Servicios:</h3>
+                <ul>
+                    <li class="icons"><img src="../assets/icons/dog-icon.svg" alt="No perros"> No perros</li>
+                    <li class="icons"><img src="../assets/icons/tv-icon.svg" alt="TV"> TV</li>
+                    <li class="icons"><img src="../assets/icons/wifi-icon.svg" alt="Wi-Fi"> Wi-Fi</li>
+                    <li class="icons"><img src="../assets/icons/food-icon.svg" alt="Comida gourmet"> Comida gourmet</li>
+                    <li class="icons"><img src="../assets/icons/bed-icon.svg" alt="Cama extra"> Cama extra</li>
+                    <li class="icons"><img src="../assets/icons/sofa-icon.svg" alt="Sofa"> Sofa</li>
+                    <li class="icons"><img src="../assets/icons/box-icon.svg" alt="Cajas"> Cajas</li>
+                    <li class="icons"><img src="../assets/icons/petting-icon.svg" alt="Mimos"> Mimos</li>
+                    <li class="icons"><img src="../assets/icons/shower-icon.svg" alt="Grifo"> Grifo</li>
+                    <li class="icons"><img src="../assets/icons/sandbox-icon.svg" alt="Arenero"> Arenero</li>
+                </ul>          
+            </div>
+            <!-- Botón de reservar -->
+            <div>
+                 <button id="reservar-button">Reservar</button>
+            </div>
         </div>
     </div>
-</section>
 
         <section id="servicios">
             <h2>Servicios</h2>
