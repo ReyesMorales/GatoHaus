@@ -65,3 +65,78 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Código para el manejo del calendario de reservas
+document.addEventListener('DOMContentLoaded', function() {
+    const reservarButton = document.getElementById('reservar-button');
+    const calendarioContainer = document.getElementById('calendario-container');
+    const confirmarReservaButton = document.getElementById('confirmar-reserva');
+    
+    if (reservarButton) {
+        // Inicializar el calendario con Flatpickr
+        const calendarioInput = document.getElementById('fecha-reserva');
+        const calendarioInstance = flatpickr(calendarioInput, {
+            mode: "range",
+            minDate: "today",
+            dateFormat: "Y-m-d",
+            disable: [
+                function(date) {
+                    return false;
+                }
+            ],
+            locale: {
+                firstDayOfWeek: 1, // Lunes como primer día
+                rangeSeparator: ' hasta '
+            }
+        });
+        
+        // Mostrar calendario al hacer clic en el botón reservar
+        reservarButton.addEventListener('click', function() {
+            if (calendarioContainer.style.display === 'none') {
+                calendarioContainer.style.display = 'block';
+                calendarioInstance.open();
+            } else {
+                calendarioContainer.style.display = 'none';
+            }
+        });
+        
+        // Manejar la confirmación de reserva
+        confirmarReservaButton.addEventListener('click', function() {
+            const fechasSeleccionadas = calendarioInput.value;
+            
+            if (fechasSeleccionadas) {
+                const [fechaInicio, fechaFin] = fechasSeleccionadas.split(' hasta ');
+                
+                // Crear mensaje de confirmación estilizado
+                const mensajeConfirmacion = document.createElement('div');
+                mensajeConfirmacion.className = 'mensaje-confirmacion';
+                mensajeConfirmacion.innerHTML = `
+                    <div class="mensaje-contenido">
+                        <h3>¡Reserva confirmada!</h3>
+                        <p>Fecha de inicio: ${fechaInicio}</p>
+                        <p>Fecha de fin: ${fechaFin || fechaInicio}</p>
+                        <button class="cerrar-mensaje">Aceptar</button>
+                    </div>
+                `;
+                
+                // Añadir el mensaje al DOM
+                document.body.appendChild(mensajeConfirmacion);
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    mensajeConfirmacion.classList.add('visible');
+                }, 10);
+                
+                // Cerrar mensaje al hacer clic en el botón
+                mensajeConfirmacion.querySelector('.cerrar-mensaje').addEventListener('click', () => {
+                    mensajeConfirmacion.classList.remove('visible');
+                    setTimeout(() => {
+                        document.body.removeChild(mensajeConfirmacion);
+                    }, 300);
+                });
+                
+                calendarioContainer.style.display = 'none';
+            }
+        });
+    }
+});
