@@ -2,6 +2,8 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const navItems = document.querySelectorAll('.nav-links li');
+const closeBtn = document.querySelector('.modal-close');
+
 
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
@@ -17,14 +19,13 @@ navItems.forEach(item => {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Seleccionar los botones de "Ver más" y el modal
     const botonesVerMas = document.querySelectorAll('.ver-mas');
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
-    const closeBtn = document.querySelector('.close');
+    const closeBtn = document.querySelector('.modal-close');
 
-    // Información de las habitaciones (puedes agregar más detalles según necesites)
+    // Información de las habitaciones
     const habitacionesInfo = {
         deluxe: {
             title: "Habitación Deluxe",
@@ -46,14 +47,13 @@ document.addEventListener("DOMContentLoaded", function() {
             const habitacionId = boton.getAttribute('data-habitacion');
             const habitacion = habitacionesInfo[habitacionId];
 
-            // Mostrar el modal con la información de la habitación
             modalTitle.textContent = habitacion.title;
             modalDescription.textContent = habitacion.description;
             modal.style.display = 'block';
         });
     });
 
-    // Cerrar el modal cuando se hace clic en el botón de cerrar
+    // Cerrar el modal cuando se haga clic en el botón de cierre
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
     });
