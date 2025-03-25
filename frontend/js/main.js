@@ -2,43 +2,49 @@ fetch('http://localhost:5000/api/rooms')
     .then(response => response.json())
     .then(rooms => {
         const roomsContainer = document.getElementById('rooms');
+        roomsContainer.innerHTML = ''; 
+
         rooms.forEach(room => {
-            const roomElement = document.createElement('div');
-            roomElement.classList.add('room'); 
+            const card = document.createElement('div');
+            card.classList.add('card');
 
-            // Si la habitación está reservada, le añadimos la clase 'reserved'
-            if (!room.available) {
-                roomElement.classList.add('reserved');
-            }
-
-            roomElement.innerHTML = `
-                <h3>${room.name}</h3>
-                <p>${room.available ? 'Available' : 'Not available'}</p>
-                <button class="reserve-btn" ${!room.available ? 'disabled' : ''}>Reserve</button>
+            card.innerHTML = `
+                <h3>${room.tipo} ${room.room_number}</h3>
+                <img src="/assets/Imagen_habitacion1.jpg" alt="${room.tipo}">
+                <button class="ver-mas" data-habitacion="${room.tipo.toLowerCase()}">Ver más</button>
             `;
 
-            // Agregar el evento de reserva
-            const reserveButton = roomElement.querySelector('.reserve-btn');
-            reserveButton.addEventListener('click', () => {
-                // Enviar la solicitud al backend para reservar la habitación
-                fetch(`http://localhost:5000/api/rooms/${encodeURIComponent(room.name)}/reserve`, {
-                    method: 'PUT',
-                })
-                .then(response => response.json())
-                .then(updatedRoom => {
-                    alert(`¡Reserva confirmada para ${updatedRoom.name}!`);
-                    // Actualizar la vista en el frontend
-                    roomElement.querySelector('p').textContent = 'Not available';
-                    roomElement.classList.add('reserved');  // Añadir la clase reservada
-                    reserveButton.disabled = true;  
-                })
-                .catch(error => {
-                    console.error('Error al hacer la reserva:', error);
-                });
-            });
-            roomsContainer.appendChild(roomElement);
+            roomsContainer.appendChild(card);
         });
     })
     .catch(error => {
         console.error('Error al cargar las habitaciones:', error);
     });
+
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('ver-mas')) {
+          const nombreHabitacion = e.target.getAttribute('data-habitacion');
+      
+          const habitacionesInfo = {
+            deluxe: {
+              title: "Habitación Deluxe",
+              description: "Una habitación lujosa con todas las comodidades para tu gato."
+            },
+            suite: {
+              title: "Habitación Suite",
+              description: "La mejor opción para gatos exigentes, con vistas espectaculares."
+            },
+            cat: {
+              title: "Habitación Cat",
+              description: "Una habitación cómoda y acogedora, perfecta para descansar."
+            }
+          };
+      
+          const habitacion = habitacionesInfo[nombreHabitacion];
+          if (habitacion) {
+            document.getElementById('modal-title').textContent = habitacion.title;
+            document.getElementById('modal-description').textContent = habitacion.description;
+            document.getElementById('modal').style.display = 'block';
+          }
+        }
+      });

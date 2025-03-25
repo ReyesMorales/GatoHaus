@@ -22,7 +22,9 @@
 <header>
     <nav>
         <div class="logo-container">
-            <img src="../assets/Logo_GatoHaus.png" alt="Logo" class="logo"> 
+            <a href="index.html">
+                <img src="../assets/Logo_GatoHaus.png" alt="Logo" class="logo"> 
+            </a>
         </div>
         <button class="menu-toggle">☰</button> <!-- Botón para móviles -->
         <ul class="nav-links">
@@ -42,27 +44,32 @@
         </div>
     </section>
 
+    <section id="disponibilidad">
+        <h2>Disponibilidad</h2>
+        <p>Consulta la disponibilidad de nuestras habitaciones.</p>
+        <div id="calendar"></div>
+        <!-- Formulario para consultar disponibilidad -->
+        <form id="reservation-form">
+            <label for="fecha_inicio">Fecha de inicio:</label>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+            
+            <label for="fecha_fin">Fecha de fin:</label>
+            <input type="date" id="fecha_fin" name="fecha_fin" required>
+    
+            <button type="submit">Consultar Disponibilidad</button>
+        </form>
+
+        <!-- Aquí se mostrarán las habitaciones disponibles -->
+        <div id="available-rooms"></div>
+    </section>
+
     <!-- Contenido principal de la página -->
     <main>
         <section id="habitaciones">
             <h2>Habitaciones</h2>
             <p>Echa un vistazo a nuestras habitaciones.</p>
-                <div class="cards-container">
-                    <div class="card">
-                        <h3>Habitación Deluxe</h3>
-                            <img src="/assets/Imagen_habitacion1.jpg" alt="Habitación Deluxe">
-                            <button class="ver-mas" data-habitacion="deluxe">Ver más</button>
-                    </div>
-                    <div class="card">
-                        <h3>Habitación Suite</h3>
-                            <img src="/assets/Imagen_habitacion2.jpg" alt="Habitación Suite">
-                            <button class="ver-mas" data-habitacion="suite">Ver más</button>
-                    </div>
-                    <div class="card">
-                        <h3>Habitación Cat</h3>
-                            <img src="/assets/Imagen_habitacion3.jpg" alt="Habitación Cat">
-                            <button class="ver-mas" data-habitacion="cat">Ver más</button>
-                    </div>
+                <div class="cards-container" id="rooms">
+                    
                 </div>
         </section>
 

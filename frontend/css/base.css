@@ -15,4 +15,22 @@
 body {
     font-family: Arial, sans-serif;
     background-color: var(--dun);
+    padding: 0;
+    margin: 0;
 }
+
+main {
+    padding: 0 1rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  /* En móviles, forzamos el padding */
+  @media (max-width: 600px) {
+    main, section {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
