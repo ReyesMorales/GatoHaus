@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
+const client = require('./db');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,34 +11,30 @@ const port = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets'))); 
 
-// Simulamos una base de datos en memoria
-let rooms = [
-    { name: 'Habitación 1', available: true },
-    { name: 'Habitación 2', available: false },
-    { name: 'Habitación 3', available: true },
-];
-
-// Endpoint para obtener habitaciones
-app.get('/api/rooms', (req, res) => {
-    res.json(rooms);
-});
-
-// Endpoint para reservar una habitación
-app.put('/api/rooms/:name/reserve', (req, res) => {
-    const roomName = req.params.name;
-    const room = rooms.find(r => r.name === roomName);
-    
-    if (room && room.available) {
-        room.available = false;  // Marcar como reservada
-        res.json(room);
-    } else {
-        res.status(400).json({ message: 'Room is already reserved or does not exist' });
+// Obtener todas las habitaciones con su tipo
+app.get('/api/rooms', async (req, res) => {
+    try {
+      const result = await client.query(`
+        SELECT r.id, r.room_number, rt.name AS tipo, rt.description AS tipo_descripcion
+        FROM rooms r
+        JOIN room_types rt ON r.type_id = rt.id
+        ORDER BY r.room_number
+      `);
+  
+      res.json(result.rows);
+    } catch (error) {
+      console.error('Error al obtener habitaciones:', error);
+      res.status(500).json({ message: 'Error interno del servidor' });
     }
-});
+  });
+  
 
 // Iniciar servidor
-app.listen(port, () => {
-    console.log(`Servidor corriendo en el puerto ${port}`);
-});
+app.listen(5000, () => {
+    console.log('Servidor corriendo en http://localhost:5000');
+  });
+  
+
