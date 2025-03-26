@@ -95,16 +95,34 @@
                     <li class="icons"><img src="../assets/icons/sandbox-icon.svg" alt="Arenero"> Arenero</li>
                 </ul>          
             </div>
-            <!-- Botón de reservar -->
-            <div>
+        <!-- Botón de reservar -->
+        <div>
                 <button id="reservar-button">Reservar</button>
-            <div id="calendario-container" style="display: none;">
-                <input type="text" id="fecha-reserva" placeholder="Selecciona fechas" readonly>
-                <button id="confirmar-reserva">Confirmar reserva</button>
-    </div>
-</div>
+  
+            <!-- Formulario de reserva (inicialmente oculto) -->
+                <div id="formulario-reserva" style="display: none; margin-top: 1rem;">
+                    <form id="form-reserva">
+                        <label for="habitacion-select">Habitación:</label>
+                        <select id="habitacion-select">
+                            <option value="1">Deluxe 101</option>
+                            <option value="2">Deluxe 102</option>
+                            <option value="3">Suite 201</option>
+                            <option value="4">Suite 202</option>
+                            <option value="5">Cat 301</option>
+                          </select>
+                          
+  
+                        <label for="nombre-cliente">Nombre:</label>
+                            <input type="text" id="nombre-cliente" name="cliente" required>
+  
+                        <label for="fecha-reserva">Fechas:</label>
+                            <input type="text" id="fecha-reserva" name="fechas" placeholder="Selecciona fechas" readonly required>
+  
+                        <button type="submit" id="confirmar-reserva">Confirmar reserva</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
 
         <section id="servicios">
             <h2>Servicios</h2>
@@ -122,7 +140,6 @@
         <p>&copy; 2025 GatoHaus. Todos los derechos reservados.</p>
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/index.js"></script>
 </body>
 
 </html>
