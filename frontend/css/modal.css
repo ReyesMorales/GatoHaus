@@ -166,3 +166,104 @@
     background-color: var(--field-drab);
     transform: scale(1.1);
 }
+
+/* Formulario dentro del modal */
+#formulario-reserva {
+    margin-top: 20px;
+}
+
+#formulario-reserva label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--field-drab);
+    font-size: 14px;
+}
+
+#formulario-reserva select,
+#formulario-reserva input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--field-drab);
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: var(--alabaster);
+    color: var(--caf-noir);
+    margin-bottom: 15px;
+}
+
+#formulario-reserva select:focus,
+#formulario-reserva input[type="text"]:focus {
+    outline: none;
+    border-color: var(--lion);
+    box-shadow: 0 0 4px var(--lion);
+}
+
+#formulario-reserva button[type="submit"] {
+    background-color: var(--lion);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-reserva button[type="submit"]:hover {
+    background-color: var(--field-drab);
+}
+
+@media (max-width: 400px) {
+    #formulario-reserva label {
+      font-size: 13px;
+    }
+  
+    #formulario-reserva select,
+    #formulario-reserva input[type="text"] {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    #formulario-reserva button[type="submit"] {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+
+  /* Ajustes para el calendario en móviles */
+@media (max-width: 480px) {
+    .flatpickr-calendar {
+      width: 90vw !important;
+      font-size: 14px;
+    }
+  
+    .flatpickr-day,
+    .flatpickr-weekday {
+      font-size: 12px;
+    }
+  
+    .flatpickr-months .flatpickr-month {
+      font-size: 14px;
+    }
+  }
+  
+
+  @media (min-width: 401px) and (max-width: 1024px) {
+    #formulario-reserva label {
+      font-size: 15px;
+    }
+  
+    #formulario-reserva select,
+    #formulario-reserva input[type="text"] {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    #formulario-reserva button[type="submit"] {
+      font-size: 16px;
+      padding: 10px 18px;
+    }
+  }
+  
