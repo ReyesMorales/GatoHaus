@@ -39,6 +39,7 @@ fetch('http://localhost:5000/api/rooms')
   })
   .catch(error => {
     console.error('Error al cargar las habitaciones:', error);
+    mostrarMensaje("Error", "No se pudieron cargar las habitaciones.", "error");
   });
 
 // --- 3. MODAL + FUNCIONALIDAD DE "VER MÁS" ---
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (reservarBtn && formularioReserva) {
     reservarBtn.addEventListener('click', () => {
       formularioReserva.style.display = 'block';
-      calendarioInput._flatpickr?.open(); // Abre el calendario automáticamente
+      calendarioInput._flatpickr?.open();
     });
   }
 
@@ -128,27 +129,16 @@ if (formulario) {
     const fechas = document.getElementById('fecha-reserva').value;
 
     if (!habitacion || !nombreCliente || !fechas) {
-      alert("Por favor, completa todos los campos.");
+      mostrarMensaje("Campos incompletos", "Por favor, completa todos los campos.", "error");
       return;
     }
 
     const [fechaInicio, fechaFin] = fechas.split(' hasta ');
 
     if (!fechaInicio || !fechaFin) {
-      alert("Selecciona un rango de fechas válido.");
+      mostrarMensaje("Fechas inválidas", "Selecciona un rango de fechas válido.", "error");
       return;
     }
-
-    console.log("Datos enviados:", {
-      habitacion,
-      fecha_inicio: fechaInicio,
-      fecha_fin: fechaFin,
-      cliente: nombreCliente
-    });
-    
-
-    // Enviar al backend
-    const habitacionId = document.getElementById('habitacion-select').value;
 
     fetch(`http://localhost:5000/api/rooms/${habitacion}/reserve`, {
       method: 'POST',
@@ -165,15 +155,11 @@ if (formulario) {
     .then(data => {
       if (data.message) {
         console.error("Error desde el backend:", data.message);
-        alert(data.message);
+        mostrarMensaje("Error", data.message, "error");
       } else {
-        console.log("Reserva exitosa:", data);
-    
-        // Formatear fechas para que no salgan con hora
         const fechaFormateadaInicio = new Date(data.fecha_inicio).toISOString().split('T')[0];
         const fechaFormateadaFin = new Date(data.fecha_fin).toISOString().split('T')[0];
-    
-        // Crear el mensaje de éxito
+
         const mensajeConfirmacion = document.createElement('div');
         mensajeConfirmacion.className = 'mensaje-confirmacion';
         mensajeConfirmacion.innerHTML = `
@@ -185,15 +171,13 @@ if (formulario) {
             <button class="cerrar-mensaje">Aceptar</button>
           </div>
         `;
-    
+
         document.body.appendChild(mensajeConfirmacion);
-    
-        // Mostrar animación
+
         setTimeout(() => {
           mensajeConfirmacion.classList.add('visible');
         }, 10);
-    
-        // Cerrar el mensaje al hacer clic en "Aceptar"
+
         mensajeConfirmacion.querySelector('.cerrar-mensaje').addEventListener('click', () => {
           mensajeConfirmacion.classList.remove('visible');
           setTimeout(() => {
@@ -204,7 +188,36 @@ if (formulario) {
     })
     .catch(error => {
       console.error("Error al enviar la reserva:", error);
-      alert("Ocurrió un error al enviar la reserva.");
+      mostrarMensaje("Error de red", "Ocurrió un error al enviar la reserva.", "error");
     });
+  });
+}
+
+// --- 7. FUNCIÓN DE MENSAJE REUTILIZABLE ---
+function mostrarMensaje(titulo, mensaje, tipo = 'info') {
+  const mensajeConfirmacion = document.createElement('div');
+  mensajeConfirmacion.className = 'mensaje-confirmacion';
+
+  const color = tipo === 'error' ? 'var(--caf-noir)' : 'var(--lion)';
+
+  mensajeConfirmacion.innerHTML = `
+    <div class="mensaje-contenido" style="border-left: 5px solid ${color};">
+      <h3>${titulo}</h3>
+      <p>${mensaje}</p>
+      <button class="cerrar-mensaje">Aceptar</button>
+    </div>
+  `;
+
+  document.body.appendChild(mensajeConfirmacion);
+
+  setTimeout(() => {
+    mensajeConfirmacion.classList.add('visible');
+  }, 10);
+
+  mensajeConfirmacion.querySelector('.cerrar-mensaje').addEventListener('click', () => {
+    mensajeConfirmacion.classList.remove('visible');
+    setTimeout(() => {
+      document.body.removeChild(mensajeConfirmacion);
+    }, 300);
   });
 }
