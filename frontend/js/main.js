@@ -22,25 +22,38 @@ fetch('http://localhost:5000/api/rooms')
   .then(response => response.json())
   .then(rooms => {
     const roomsContainer = document.getElementById('rooms');
-    roomsContainer.innerHTML = ''; 
+    roomsContainer.innerHTML = '';
+
+    const tiposMostrados = new Set();
+
+    const imagenesPorTipo = {
+      deluxe: '/assets/Imagen_habitacion1.jpg',
+      suite: '/assets/Imagen_habitacion2.jpg',
+      cat: '/assets/Imagen_habitacion3.jpg'
+    };
 
     rooms.forEach(room => {
-      const card = document.createElement('div');
-      card.classList.add('card');
+      const tipo = room.tipo.toLowerCase();
 
-      card.innerHTML = `
-        <h3>${room.tipo} ${room.room_number}</h3>
-        <img src="/assets/Imagen_habitacion1.jpg" alt="${room.tipo}">
-        <button class="ver-mas" data-habitacion="${room.tipo.toLowerCase()}">Ver más</button>
-      `;
+      if (!tiposMostrados.has(tipo)) {
+        const card = document.createElement('div');
+        card.classList.add('card');
 
-      roomsContainer.appendChild(card);
+        card.innerHTML = `
+          <h3>${room.tipo}</h3>
+          <img src="${imagenesPorTipo[tipo] || '/assets/default.jpg'}" alt="${room.tipo}">
+          <button class="ver-mas" data-habitacion="${tipo}">Ver más</button>
+        `;
+
+        roomsContainer.appendChild(card);
+        tiposMostrados.add(tipo);
+      }
     });
   })
   .catch(error => {
     console.error('Error al cargar las habitaciones:', error);
-    mostrarMensaje("Error", "No se pudieron cargar las habitaciones.", "error");
   });
+
 
 // --- 3. MODAL + FUNCIONALIDAD DE "VER MÁS" ---
 const modal = document.getElementById('modal');
@@ -73,6 +86,19 @@ document.addEventListener('click', function (e) {
       modalTitle.textContent = habitacion.title;
       modalDescription.textContent = habitacion.description;
       modal.style.display = 'block';
+
+      //Limpiar formulario y calendario al abrir
+      const formulario = document.getElementById('form-reserva');
+      formulario.reset();
+
+      const formularioReserva = document.getElementById('formulario-reserva');
+      formularioReserva.style.display = 'none';
+
+      const calendarioInput = document.getElementById('fecha-reserva');
+      if (calendarioInput && calendarioInput._flatpickr) {
+        calendarioInput._flatpickr.clear();
+        calendarioInput._flatpickr.close();
+      }
     }
   }
 });
@@ -90,7 +116,7 @@ if (closeBtn && modal) {
   });
 }
 
-// --- 4. MOSTRAR FORMULARIO AL CLIC EN "RESERVAR" ---
+// --- 4 & 5. MOSTRAR FORMULARIO + CONFIGURAR FLATPICKR ---
 document.addEventListener('DOMContentLoaded', () => {
   const reservarBtn = document.getElementById('reservar-button');
   const formularioReserva = document.getElementById('formulario-reserva');
@@ -99,13 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (reservarBtn && formularioReserva) {
     reservarBtn.addEventListener('click', () => {
       formularioReserva.style.display = 'block';
-      calendarioInput._flatpickr?.open();
     });
   }
 
-  // --- 5. CONFIGURAR FLATPICKR ---
   if (calendarioInput) {
-    flatpickr(calendarioInput, {
+    const calendario = flatpickr(calendarioInput, {
       mode: "range",
       minDate: "today",
       dateFormat: "Y-m-d",
@@ -114,8 +138,22 @@ document.addEventListener('DOMContentLoaded', () => {
         rangeSeparator: ' hasta ',
       },
     });
+
+    // Abrir al hacer clic en el icono
+    const iconoCalendario = document.querySelector('.icono-calendario');
+    if (iconoCalendario) {
+      iconoCalendario.addEventListener('click', () => {
+        calendario.open();
+      });
+    }
+
+    // También abrir al hacer clic en el input
+    calendarioInput.addEventListener('click', () => {
+      calendario.open();
+    });
   }
 });
+
 
 // --- 6. ENVIAR FORMULARIO AL BACKEND ---
 const formulario = document.getElementById('form-reserva');
@@ -182,6 +220,16 @@ if (formulario) {
           mensajeConfirmacion.classList.remove('visible');
           setTimeout(() => {
             document.body.removeChild(mensajeConfirmacion);
+
+            // Limpieza completa después del mensaje de éxito
+            formulario.reset();
+            document.getElementById('formulario-reserva').style.display = 'none';
+
+            const calendarioInput = document.getElementById('fecha-reserva');
+            if (calendarioInput && calendarioInput._flatpickr) {
+              calendarioInput._flatpickr.clear();
+              calendarioInput._flatpickr.close();
+            }
           }, 300);
         });
       }

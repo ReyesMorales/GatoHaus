@@ -68,10 +68,9 @@
         <section id="habitaciones">
             <h2>Habitaciones</h2>
             <p>Echa un vistazo a nuestras habitaciones.</p>
-                <div class="cards-container" id="rooms">
-                    
-                </div>
-        </section>
+                <div class="cards-container" id="rooms"></div>                 
+                
+        
 
          <!-- Modal para mostrar más detalles -->
          <div class="modal" id="modal">
@@ -116,14 +115,17 @@
                             <input type="text" id="nombre-cliente" name="cliente" required>
   
                         <label for="fecha-reserva">Fechas:</label>
+                        <div class="input-fecha">
                             <input type="text" id="fecha-reserva" name="fechas" placeholder="Selecciona fechas" readonly required>
+                            <span class="icono-calendario">📅</span>
+                          </div>
   
                         <button type="submit" id="confirmar-reserva">Confirmar reserva</button>
                     </form>
                 </div>
             </div>
         </div>
-
+        </section>
         <section id="servicios">
             <h2>Servicios</h2>
             <p>Detalles de los servicios de nuestro hotel.</p>

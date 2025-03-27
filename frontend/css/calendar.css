@@ -45,3 +45,23 @@
         font-size: 14px;
     }
 }
+
+.input-fecha {
+    position: relative;
+}
+  
+.input-fecha input {
+    width: 100%;
+    padding-right: 2.5rem; /* espacio para el icono */
+}
+  
+.icono-calendario {
+    position: absolute;
+    top: 35%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    pointer-events: none;
+    color: var(--field-drab);
+}
+  
