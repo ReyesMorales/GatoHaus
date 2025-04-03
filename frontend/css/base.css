@@ -1,36 +1,44 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
---lion: #a6894e;
---dun: #d9cbaf;
---field-drab: #695831ff;
---alabaster: #f1eee4ff;
---caf-noir: #433423ff;
+  --lion: #a6894e;
+  --dun: #d9cbaf;
+  --field-drab: #695831ff;
+  --alabaster: #f1eee4ff;
+  --caf-noir: #433423ff;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--dun);
-    padding: 0;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--dun);
+  padding: 0;
+  margin: 0;
 }
 
 main {
-    padding: 0 1rem;
-  }
+  padding: 0 1rem;
+}
 
+section {
+  margin-bottom: 2rem;
+}
+
+/* En móviles, forzamos el padding */
+@media (max-width: 600px) {
+  main,
   section {
-    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  
-  /* En móviles, forzamos el padding */
-  @media (max-width: 600px) {
-    main, section {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-  }
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--field-drab);
+  margin-bottom: 0.8rem;
+}
