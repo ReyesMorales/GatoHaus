@@ -18,7 +18,7 @@ if (menuToggle && navLinks) {
 }
 
 // --- 2. CARGAR HABITACIONES DINÁMICAMENTE ---
-fetch('http://localhost:5000/api/rooms')
+fetch('https://gatohaus-backend.onrender.com/api/rooms')
   .then(response => response.json())
   .then(rooms => {
     const roomsContainer = document.getElementById('rooms');
@@ -178,7 +178,7 @@ if (formulario) {
       return;
     }
 
-    fetch(`http://localhost:5000/api/rooms/${habitacion}/reserve`, {
+    fetch(`https://gatohaus-backend.onrender.com/api/rooms/${habitacion}/reserve`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
