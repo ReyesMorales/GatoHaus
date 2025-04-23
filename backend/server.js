@@ -14,6 +14,11 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets'))); 
 
+
+app.get('/', (req, res) => {
+  res.send('¡La API de GatoHaus está viva! 😺');
+});
+
 // Obtener todas las habitaciones con su tipo
 app.get('/api/rooms', async (req, res) => {
     try {
