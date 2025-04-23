@@ -72,12 +72,10 @@ app.post('/api/rooms/:room_number/reserve', async (req, res) => {
   }
 });
 
-
-  
-
 // Iniciar servidor
-app.listen(5000, () => {
-    console.log('Servidor corriendo en http://localhost:5000');
-  });
+app.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
+});
+
   
 
