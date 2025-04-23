@@ -1,12 +1,24 @@
 # GatoHaus 🐱🏨
-Un hotel exclusivo para gatos, donde podrás hacer reservas de habitaciones, vuelos, ¡y mucho más!
 
-## Características:
-- Ver habitaciones disponibles.
-- Hacer reservas para tu gato.
-- ¡Próximamente más servicios!
+Aplicación web para la reserva de habitaciones en un hotel para gatos. Interfaz amigable, diseño responsive y funcionalidades conectadas a una base de datos en tiempo real.
 
-## Tecnologías:
-- Frontend: HTML, CSS, JavaScript
-- Backend: Node.js, Express
+---
+
+## 🌐 Demo
+
+👉 [Ver sitio en vivo](https://reyesmorales.github.io/gatohaus-frontend/)
+
+---
+
+## ⚙️ Tecnologías utilizadas
+
+- HTML, CSS y JavaScript
+- Node.js + Express (backend)
+- PostgreSQL (base de datos)
+- Render (hosting backend + base de datos)
+- GitHub Pages (hosting frontend)
+
+---
+
+Desarrollado por Reyes Morales 
 
