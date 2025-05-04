@@ -27,9 +27,9 @@ fetch('https://gatohaus-backend.onrender.com/api/rooms')
     const tiposMostrados = new Set();
 
     const imagenesPorTipo = {
-      deluxe: '/assets/Imagen_habitacion1.jpg',
-      suite: '/assets/Imagen_habitacion2.jpg',
-      cat: '/assets/Imagen_habitacion3.jpg'
+      deluxe: 'assets/Imagen_habitacion1.jpg',
+      suite: 'assets/Imagen_habitacion2.jpg',
+      cat: 'assets/Imagen_habitacion3.jpg'
     };
 
     rooms.forEach(room => {
@@ -41,7 +41,7 @@ fetch('https://gatohaus-backend.onrender.com/api/rooms')
 
         card.innerHTML = `
           <h3>${room.tipo}</h3>
-          <img src="${imagenesPorTipo[tipo] || '/assets/default.jpg'}" alt="${room.tipo}">
+          <img src="${imagenesPorTipo[tipo] || 'assets/default.jpg'}" alt="${room.tipo}">
           <button class="ver-mas" data-habitacion="${tipo}">Ver más</button>
         `;
 

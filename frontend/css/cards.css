@@ -8,8 +8,8 @@
   
 /* Estilos para las cards */
 .card {
-    width: 100%;             /* Cambiamos de 350px fijo a 100% del contenedor */
-    max-width: 350px;        /* Conservamos el tamaño máximo ideal */
+    width: 100%;            
+    max-width: 350px;   
     background-color: var(--lion);
     border-radius: 10px;
     padding: 1rem;
@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    position: relative;     /* Esto es importante para el botón .ver-mas */
+    position: relative;     
   }
 
 /* Estilo de la imagen */
@@ -57,7 +57,6 @@
       grid-template-columns: 1fr;
     }
   }
-  
 
   .ver-mas {
     font-size: 16px;
