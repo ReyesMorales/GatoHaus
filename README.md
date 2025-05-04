@@ -22,7 +22,3 @@ Aplicación web para la reserva de habitaciones en un hotel para gatos. Interfaz
 
 Desarrollado por Reyes Morales 
 
-
-
-
-
