@@ -54,7 +54,6 @@ fetch('https://gatohaus-backend.onrender.com/api/rooms')
     console.error('Error al cargar las habitaciones:', error);
   });
 
-
 // --- 3. MODAL + FUNCIONALIDAD DE "VER MÁS" ---
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
@@ -153,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
 
 // --- 6. ENVIAR FORMULARIO AL BACKEND ---
 const formulario = document.getElementById('form-reserva');
