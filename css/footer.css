@@ -1,0 +1,7 @@
+/* Estilo del pie de página */
+footer {
+    background-color: var(--dun);
+    color: var(--lion);
+    text-align: center;
+    padding: 10px 0;
+}

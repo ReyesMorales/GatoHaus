@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>GatoHaus</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/available.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+<body>
+   <!-- Barra de Navegación -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/Logo_GatoHaus.png" alt="Logo" class="logo"> 
+                </a>
+            </div>
+            <button class="menu-toggle">☰</button> <!-- Botón para móviles -->
+            <ul class="nav-links">
+                <li><a href="#disponibilidad">Disponibilidad</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Imagen de portada -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a GatoHaus</h1>
+            <p>Este es el comienzo de una gran catoaventura.</p>
+        </div>
+    </section>
+<main>
+    <h2 class="section-title">Disponibilidad</h2>
+    <section id="disponibilidad">
+        <p>Consulta la disponibilidad de nuestras habitaciones.</p>
+        <div id="calendar"></div>
+        <!-- Formulario para consultar disponibilidad -->
+        <form id="reservation-form">
+            <label for="fecha_inicio">Fecha de inicio:</label>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+            
+            <label for="fecha_fin">Fecha de fin:</label>
+            <input type="date" id="fecha_fin" name="fecha_fin" required>
+    
+            <button type="submit">Consultar Disponibilidad</button>
+        </form>
+
+        <!-- Aquí se mostrarán las habitaciones disponibles -->
+        <div id="available-rooms"></div>
+    </section>
+
+    <!-- Contenido principal de la página -->
+    
+        <section id="habitaciones">
+            <h2 class="section-title">Habitaciones</h2>
+            <p>Echa un vistazo a nuestras habitaciones.</p>
+                <div class="cards-container" id="rooms"></div>                 
+
+         <!-- Modal para mostrar más detalles -->
+         <div class="modal" id="modal">
+             <div class="modal-content">
+                 <button class="modal-close">&times;</button>
+                 <h2 id="modal-title">Título de la habitación</h2>
+                <p id="modal-description">Aquí iría la descripción de la habitación seleccionada.</p>
+           <!-- Servicios de la habitación con iconos -->
+            <div id="modal-services">
+                <h3>Servicios:</h3>
+                <ul>
+                    <li class="icons"><img src="assets/icons/dog-icon.svg" alt="No perros"> No perros</li>
+                    <li class="icons"><img src="assets/icons/tv-icon.svg" alt="TV"> TV</li>
+                    <li class="icons"><img src="assets/icons/wifi-icon.svg" alt="Wi-Fi"> Wi-Fi</li>
+                    <li class="icons"><img src="assets/icons/food-icon.svg" alt="Comida gourmet"> Comida gourmet</li>
+                    <li class="icons"><img src="assets/icons/bed-icon.svg" alt="Cama extra"> Cama extra</li>
+                    <li class="icons"><img src="assets/icons/sofa-icon.svg" alt="Sofa"> Sofa</li>
+                    <li class="icons"><img src="assets/icons/box-icon.svg" alt="Cajas"> Cajas</li>
+                    <li class="icons"><img src="assets/icons/petting-icon.svg" alt="Mimos"> Mimos</li>
+                    <li class="icons"><img src="assets/icons/shower-icon.svg" alt="Grifo"> Grifo</li>
+                    <li class="icons"><img src="assets/icons/sandbox-icon.svg" alt="Arenero"> Arenero</li>
+                </ul>          
+            </div>
+        <!-- Botón de reservar -->
+        <div>
+                <button id="reservar-button">Reservar</button>
+  
+            <!-- Formulario de reserva (inicialmente oculto) -->
+                <div id="formulario-reserva" style="display: none; margin-top: 1rem;">
+                    <form id="form-reserva">
+                        <label for="habitacion-select">Habitación:</label>
+                        <select id="habitacion-select">
+                            <option value="1">Deluxe 101</option>
+                            <option value="2">Deluxe 102</option>
+                            <option value="3">Suite 201</option>
+                            <option value="4">Suite 202</option>
+                            <option value="5">Cat 301</option>
+                          </select>
+
+                        <label for="nombre-cliente">Nombre:</label>
+                            <input type="text" id="nombre-cliente" name="cliente" required>
+  
+                        <label for="fecha-reserva">Fechas:</label>
+                        <div class="input-fecha">
+                            <input type="text" id="fecha-reserva" name="fechas" placeholder="Selecciona fechas" readonly required>
+                            <span class="icono-calendario">📅</span>
+                          </div>
+  
+                        <button type="submit" id="confirmar-reserva">Confirmar reserva</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section id="servicios">
+            <h2 class="section-title">Servicios</h2>
+            <p>Detalles de los servicios de nuestro hotel.</p>
+        </section>
+
+        <section id="contacto">
+            <h2 class="section-title">Contacto</h2>
+            <p>Puedes ecnontranos aquí.</p>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 GatoHaus. Todos los derechos reservados.</p>
+    </footer>
+    <script src="js/main.js"></script>>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>

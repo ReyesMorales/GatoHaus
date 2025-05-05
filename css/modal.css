@@ -1,0 +1,269 @@
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    overflow-y: auto; 
+}
+
+.modal-content {
+    background: #fff;
+    margin: 15% auto; 
+    padding: 20px;
+    width: 80%; 
+    max-width: 600px; 
+    z-index: 1001; 
+}
+
+#modal-title {
+    margin-bottom: 15px; 
+    font-size: 24px; 
+}
+
+#modal-description {
+    margin-bottom: 20px;
+    font-size: 18px; 
+}
+
+#modal-services {
+    margin-top: 20px; 
+}
+
+#modal-services h3 {
+    margin-bottom: 10px; 
+    font-size: 20px; 
+}
+
+#modal-services ul {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    padding: 0;
+    list-style: none; 
+}
+
+/* Media query para pantallas pequeñas (hasta 600px de ancho) */
+@media (max-width: 768px) {
+    /* Reducir el tamaño de la fuente en el modal */
+    .modal-content {
+        font-size: 16px; 
+        width: 90%; 
+        padding: 15px;
+    }
+
+    #modal-title {
+        font-size: 22px; 
+    }
+
+    #modal-description {
+        font-size: 14px; 
+    }
+}
+
+/* Media query para pantallas muy pequeñas (hasta 400px de ancho) */
+@media (max-width: 400px) {
+    .modal-content {
+        font-size: 14px;
+    }
+
+    #modal-title {
+        font-size: 20px;
+    }
+
+    #modal-description {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 95%; 
+    }
+}
+
+/* Estilo para los servicios */
+#modal-services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#modal-services li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#modal-services img {
+    width: 20px; 
+    height: 20px;
+    margin-right: 10px; 
+}
+
+.icons {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 80px; 
+    height: auto;
+}
+
+.icons img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px; 
+}
+
+
+#reservar-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--caf-noir);
+    color: var(--alabaster);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+#reservar-button:hover {
+    background-color: var(--caf-noir);
+}
+
+
+/* Botón de cierre */
+.modal-content {
+    position: relative;
+    background: var(--alabaster);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: var(--lion);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close:hover {
+    background-color: var(--field-drab);
+    transform: scale(1.1);
+}
+
+/* Formulario dentro del modal */
+#formulario-reserva {
+    margin-top: 20px;
+}
+
+#formulario-reserva label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--field-drab);
+    font-size: 14px;
+}
+
+#formulario-reserva select,
+#formulario-reserva input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--field-drab);
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: var(--alabaster);
+    color: var(--caf-noir);
+    margin-bottom: 15px;
+}
+
+#formulario-reserva select:focus,
+#formulario-reserva input[type="text"]:focus {
+    outline: none;
+    border-color: var(--lion);
+    box-shadow: 0 0 4px var(--lion);
+}
+
+#formulario-reserva button[type="submit"] {
+    background-color: var(--lion);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-reserva button[type="submit"]:hover {
+    background-color: var(--field-drab);
+}
+
+@media (max-width: 400px) {
+    #formulario-reserva label {
+      font-size: 13px;
+    }
+  
+    #formulario-reserva select,
+    #formulario-reserva input[type="text"] {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    #formulario-reserva button[type="submit"] {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+
+  /* Ajustes para el calendario en móviles */
+@media (max-width: 480px) {
+    .flatpickr-calendar {
+      width: 90vw !important;
+      font-size: 14px;
+    }
+  
+    .flatpickr-day,
+    .flatpickr-weekday {
+      font-size: 12px;
+    }
+  
+    .flatpickr-months .flatpickr-month {
+      font-size: 14px;
+    }
+  }
+  
+
+  @media (min-width: 401px) and (max-width: 1024px) {
+    #formulario-reserva label {
+      font-size: 15px;
+    }
+  
+    #formulario-reserva select,
+    #formulario-reserva input[type="text"] {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    #formulario-reserva button[type="submit"] {
+      font-size: 16px;
+      padding: 10px 18px;
+    }
+  }
+  

@@ -1,0 +1,89 @@
+/* Contenedor de las cards */
+.cards-container {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    padding: 1rem;
+  }
+  
+/* Estilos para las cards */
+.card {
+    width: 100%;            
+    max-width: 350px;   
+    background-color: var(--lion);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;     
+  }
+
+/* Estilo de la imagen */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+/* Estilo del título en la tarjeta */
+.card h3 {
+    color: var(--alabaster);
+    font-size: 1.8rem; 
+    font-weight: bold;
+    margin: 0; 
+    line-height: 1.2;
+}
+
+/* Desktop: 3 columnas */
+@media (min-width: 1024px) {
+    .cards-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Tablets: 2 columnas */
+  @media (min-width: 600px) and (max-width: 1023px) {
+    .cards-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Móviles: 1 columna */
+  @media (max-width: 599px) {
+    .cards-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ver-mas {
+    font-size: 16px;
+    padding: 10px 15px;
+    margin-top: auto;
+    align-self: flex-end;
+    background-color: var(--field-drab);
+    color: var(--alabaster);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    position: static; /* 👈 esto es clave */
+  }
+  
+
+/* Tablets */
+@media (max-width: 768px) {
+    .ver-mas {
+        font-size: 14px; 
+        padding: 8px 12px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .ver-mas {
+        font-size: 12px; 
+        padding: 6px 10px;
+    }
+}
