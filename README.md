@@ -6,7 +6,7 @@ Aplicación web para la reserva de habitaciones en un hotel para gatos. Interfaz
 
 ## 🌐 Demo
 
-👉 [Ver sitio en vivo](https://reyesmorales.github.io/gatohaus-frontend/)
+👉 [Ver sitio en vivo](https://reyesmorales.github.io/GatoHaus/)
 
 ---
 
